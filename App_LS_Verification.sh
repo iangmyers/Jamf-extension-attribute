@@ -18,7 +18,7 @@ fi
 # Bundle identifier for application
 Application_id="APPLICATION BUNDLE ID"
 
-# Convert the clients.plist to readable format and search for Slack
+# Convert the clients.plist to readable format and search for Application
 if plutil -convert xml1 -o - /var/db/locationd/clients.plist | grep -q "$Application_id"; then
     # Now check if it's authorized
     auth_status=$(plutil -convert xml1 -o - /var/db/locationd/clients.plist | grep -A5 "$Application_id" | grep -A2 "Authorized" | grep -o "true\|false")
